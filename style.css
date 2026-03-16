@@ -3,7 +3,7 @@
     --soft: #e0bbe4;
     --deep: #663399;
     --bg: #fdfaf7;
-    --white: rgba(255, 255, 255, 0.75);
+    --glass: rgba(255, 255, 255, 0.7);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,7 +18,7 @@ body {
 
 h1, h2, h3, .logo { font-family: 'Bebas Neue', cursive; letter-spacing: 2px; }
 
-/* Background Decoration */
+/* Floating Icons Background */
 .floating-bg {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     pointer-events: none; z-index: -1;
@@ -32,16 +32,16 @@ h1, h2, h3, .logo { font-family: 'Bebas Neue', cursive; letter-spacing: 2px; }
     100% { transform: translateY(-10vh) rotate(360deg); }
 }
 
-/* Navigation */
+/* Navbar */
 .navbar {
     display: flex; justify-content: space-between; align-items: center;
     padding: 1rem 10%; background: rgba(102, 51, 153, 0.9);
     backdrop-filter: blur(10px); color: white; position: sticky; top: 0; z-index: 100;
 }
 .nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-links a { color: white; text-decoration: none; font-weight: bold; }
+.nav-links a { color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
 
-/* Header & Profile */
+/* Header */
 .header { padding: 100px 20px; text-align: center; background: var(--soft); }
 .profile-img {
     width: 180px; height: 180px; border-radius: 50%;
@@ -55,35 +55,34 @@ h1, h2, h3, .logo { font-family: 'Bebas Neue', cursive; letter-spacing: 2px; }
 }
 h1 { font-size: 4rem; color: var(--deep); min-height: 5rem; margin-top: 15px; }
 
-/* Cards & Sections */
+/* Layout & Glass Cards */
 .section { padding: 80px 10%; text-align: center; }
 .alt-bg { background: #f4f0f7; }
-.title { font-size: 3.5rem; color: var(--primary); margin-bottom: 30px; }
+.title { font-size: 3rem; color: var(--primary); margin-bottom: 30px; }
 .glass-card {
-    background: var(--white); backdrop-filter: blur(15px);
+    background: var(--glass); backdrop-filter: blur(15px);
     border: 1px solid rgba(255,255,255,0.4); padding: 40px;
     border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.05);
     max-width: 900px; margin: 0 auto;
 }
 .glass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-.detail-card { text-align: left; transition: 0.3s ease; }
+.detail-card { text-align: left; transition: 0.3s; }
 .detail-card:hover { transform: translateY(-10px); border: 1px solid var(--primary); }
 
-/* Language Indicators */
+/* Language Star Ratings */
 .lang-grid { margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
-.lang-item { display: flex; justify-content: space-between; max-width: 450px; margin: 0 auto; width: 100%; }
-.dot-bar { display: flex; gap: 6px; }
-.dot { width: 12px; height: 12px; border-radius: 50%; background: #ddd; }
-.dot.active { background: var(--primary); box-shadow: 0 0 5px var(--soft); }
+.lang-item { display: flex; justify-content: space-between; max-width: 450px; margin: 0 auto; width: 100%; font-weight: bold; font-size: 1.1rem; }
+.star-bar { color: var(--primary); letter-spacing: 3px; }
 
-/* Other Grid Styles */
+/* Hobbies & Grid */
 .hobbies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
 .hobby-item { background: white; padding: 25px; border-radius: 20px; border-bottom: 5px solid var(--primary); font-weight: bold; }
 .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .card { background: white; padding: 30px; border-radius: 20px; text-align: left; border-left: 8px solid var(--primary); }
 
-/* Game Styles */
-.btn { background: var(--primary); color: white; padding: 12px 30px; border-radius: 25px; cursor: pointer; font-family: 'Bebas Neue'; display: inline-block; }
+/* Button & Game */
+.btn { background: var(--primary); color: white; padding: 12px 30px; border-radius: 25px; cursor: pointer; font-family: 'Bebas Neue'; display: inline-block; transition: 0.3s; }
+.btn:hover { background: var(--deep); transform: scale(1.05); }
 .game-container { height: 300px; background: white; border-radius: 25px; position: relative; overflow: hidden; border: 2px dashed var(--soft); margin-top: 20px; }
 #game-target { position: absolute; font-size: 3rem; cursor: pointer; user-select: none; }
 .score { font-size: 2.5rem; color: var(--deep); font-weight: bold; margin-top: 10px; }
