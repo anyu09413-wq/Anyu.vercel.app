@@ -1,59 +1,94 @@
-/* 玻璃网格布局 */
-.glass-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    padding: 0 5%;
+:root {
+    --primary: #9b59b6;
+    --soft: #e0bbe4;
+    --deep: #663399;
+    --bg: #fdfaf7;
+    --white: rgba(255, 255, 255, 0.7);
 }
 
-.detail-card {
-    transition: 0.4s ease;
-    text-align: left;
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg);
+    color: #444;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-.detail-card:hover {
-    transform: translateY(-10px);
-    border: 1px solid var(--primary);
+h1, h2, h3, .logo { font-family: 'Bebas Neue', cursive; letter-spacing: 2px; }
+
+/* Floating Background */
+.floating-bg {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; z-index: -1;
 }
 
-.detail-card .icon {
-    font-size: 3rem;
-    margin-bottom: 15px;
-}
-
-.detail-card h3 {
-    color: var(--deep);
-    margin-bottom: 15px;
-    font-size: 1.8rem;
-}
-
-/* 语言点状进度条 */
-.lang-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.lang-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.dot-bar { display: flex; gap: 8px; }
-.dot {
-    width: 15px; height: 15px;
-    border-radius: 50%;
-    background: #ddd;
-}
-.dot.active {
-    background: var(--primary);
-    box-shadow: 0 0 10px var(--soft);
-}
-
-/* 之前漂浮背景的小优化：让它带一点紫色光晕 */
 .floating-emoji {
-    text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+    position: absolute; font-size: 1.5rem; opacity: 0.15;
+    animation: float 12s linear infinite;
 }
+
+@keyframes float {
+    0% { transform: translateY(110vh) rotate(0deg); }
+    100% { transform: translateY(-10vh) rotate(360deg); }
+}
+
+/* Navbar */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 10%; background: rgba(102, 51, 153, 0.85);
+    backdrop-filter: blur(10px); color: white; position: sticky; top: 0; z-index: 100;
+}
+
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
+
+/* Header */
+.header { padding: 100px 20px; text-align: center; background: var(--soft); }
+.profile-img {
+    width: 180px; height: 180px; border-radius: 50%;
+    border: 6px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.upload-badge {
+    position: absolute; bottom: 10px; right: 10px;
+    background: var(--primary); width: 40px; height: 40px;
+    border-radius: 50%; border: 3px solid white; color: white;
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+}
+
+h1 { font-size: 4rem; color: var(--deep); min-height: 5rem; margin-top: 15px; }
+
+/* Sections & Glass Cards */
+.section { padding: 80px 10%; text-align: center; }
+.alt-bg { background: #f4f0f7; }
+.title { font-size: 3rem; color: var(--primary); margin-bottom: 30px; }
+
+.glass-card {
+    background: var(--white); backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.4); padding: 40px;
+    border-radius: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    max-width: 900px; margin: 0 auto;
+}
+
+.glass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.detail-card { text-align: left; transition: 0.3s; }
+.detail-card:hover { transform: translateY(-10px); border: 1px solid var(--primary); }
+
+/* Language Dots */
+.lang-grid { margin-top: 30px; display: flex; flex-direction: column; gap: 15px; }
+.lang-item { display: flex; justify-content: space-between; max-width: 400px; margin: 0 auto; width: 100%; }
+.dot-bar { display: flex; gap: 6px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; background: #ddd; }
+.dot.active { background: var(--primary); }
+
+/* Hobbies */
+.hobbies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
+.hobby-item { background: white; padding: 25px; border-radius: 20px; border-bottom: 5px solid var(--primary); font-weight: bold; }
+
+/* Buttons & Game */
+.btn { background: var(--primary); color: white; padding: 12px 30px; border-radius: 25px; cursor: pointer; font-family: 'Bebas Neue'; }
+.game-container { height: 300px; background: white; border-radius: 25px; position: relative; overflow: hidden; border: 2px dashed var(--soft); margin-top: 20px; }
+#game-target { position: absolute; font-size: 3rem; cursor: pointer; user-select: none; }
+.score { font-size: 2rem; color: var(--deep); font-weight: bold; margin-top: 10px; }
