@@ -1,0 +1,104 @@
+:root {
+    --primary-purple: #9b59b6;
+    --soft-purple: #e0bbe4;
+    --deep-purple: #663399;
+    --light-gray: #f4f4f9;
+    --white: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--white);
+    color: #444;
+    scroll-behavior: smooth;
+}
+
+h1, h2, .logo { font-family: 'Bebas Neue', cursive; letter-spacing: 2px; }
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 10%;
+    background: var(--deep-purple);
+    color: white;
+    position: sticky;
+    top: 0; z-index: 100;
+}
+
+.nav-links { display: flex; list-style: none; gap: 20px; }
+.nav-links a { color: white; text-decoration: none; font-weight: bold; }
+
+/* Header */
+.header {
+    background: var(--soft-purple);
+    padding: 80px 20px;
+    text-align: center;
+    border-bottom: 5px solid var(--primary-purple);
+}
+
+.profile-wrapper { position: relative; display: inline-block; }
+.profile-img {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    border: 6px solid white;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.upload-badge {
+    position: absolute; bottom: 10px; right: 10px;
+    background: var(--primary-purple);
+    border-radius: 50%; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; border: 2px solid white;
+}
+.upload-badge input { display: none; }
+
+h1 { font-size: 4rem; color: var(--deep-purple); margin-top: 15px; }
+
+/* Sections */
+.section { padding: 80px 10%; text-align: center; }
+.alt-bg { background: var(--light-gray); }
+.title { font-size: 3rem; color: var(--primary-purple); margin-bottom: 30px; }
+
+.content-card {
+    background: white; padding: 30px; border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto;
+}
+
+.hobbies-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;
+}
+
+.hobby-item {
+    background: var(--primary-purple); color: white;
+    padding: 20px; border-radius: 15px; font-weight: bold;
+}
+
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.card {
+    background: white; padding: 30px; border-radius: 20px;
+    border-left: 8px solid var(--soft-purple);
+}
+
+/* Upload & Game */
+.btn {
+    display: inline-block; background: var(--primary-purple);
+    color: white; padding: 12px 25px; border-radius: 25px;
+    cursor: pointer; margin-top: 10px; font-family: 'Bebas Neue';
+}
+
+#resourceUpload { display: none; }
+
+.game-box {
+    height: 300px; background: white; border: 3px dashed var(--soft-purple);
+    position: relative; border-radius: 20px; margin: 20px 0; overflow: hidden;
+}
+
+#game-target {
+    font-size: 2.5rem; position: absolute; cursor: pointer; user-select: none;
+}
+
+.score { font-size: 2rem; font-weight: bold; color: var(--primary-purple); }
