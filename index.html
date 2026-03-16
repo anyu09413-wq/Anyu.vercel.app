@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anyu Zhang | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">ANYU_ZHANG ✨</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#games">Fun Zone</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="header">
+        <div class="header-content">
+            <div class="profile-wrapper">
+                <img src="https://via.placeholder.com/180/E0BBE4/663399?text=Anyu" alt="Anyu Zhang" class="profile-img" id="display-picture">
+                <div class="upload-badge">
+                    <input type="file" id="photoUpload" accept="image/*">
+                    <label for="photoUpload">📸</label>
+                </div>
+            </div>
+            <h1>Welcome to My World</h1>
+            <p class="subtitle">Grade 11 Student @ Forest City International School</p>
+        </div>
+    </header>
+
+    <section id="about" class="section">
+        <h2 class="title">About Me</h2>
+        <div class="content-card">
+            <p>Hi! I'm <strong>Anyu Zhang</strong>. Originally from <strong>China</strong>, I've called <strong>Malaysia</strong> my home for nearly eight years. I am currently navigating my junior year in <strong>Grade 11</strong> at Forest City International School.</p>
+        </div>
+    </section>
+
+    <section id="hobbies" class="section alt-bg">
+        <h2 class="title">My Hobbies</h2>
+        <div class="hobbies-grid">
+            <div class="hobby-item">🏓 Table Tennis</div>
+            <div class="hobby-item">📚 Reading</div>
+            <div class="hobby-item">🎵 Music</div>
+            <div class="hobby-item">📺 Variety Shows</div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <h2 class="title">Projects</h2>
+        <div class="grid">
+            <div class="card"><h3>School Tech Project</h3><p>Showcasing my latest Grade 11 innovations.</p></div>
+            <div class="card"><h3>Creative Works</h3><p>A collection of my digital art and essays.</p></div>
+        </div>
+    </section>
+
+    <section id="resources" class="section alt-bg">
+        <h2 class="title">Resources</h2>
+        <div class="upload-container">
+            <p>Share or upload helpful files here:</p>
+            <input type="file" id="resourceUpload">
+            <label for="resourceUpload" class="btn">Upload Resource</label>
+            <p id="resStatus" class="status-msg"></p>
+        </div>
+    </section>
+
+    <section id="games" class="section">
+        <h2 class="title">Mini Game</h2>
+        <p>Catch the purple heart!</p>
+        <div class="game-box">
+            <div id="game-target">💜</div>
+        </div>
+        <div class="score">Score: <span id="score">0</span></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
