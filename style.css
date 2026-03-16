@@ -1,183 +1,59 @@
-:root {
-    --primary-purple: #9b59b6;
-    --soft-purple: #e0bbe4;
-    --deep-purple: #663399;
-    --light-gray: #f4f4f9;
-    --white: #ffffff;
+/* 玻璃网格布局 */
+.glass-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 5%;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--white);
-    color: #444;
-    scroll-behavior: smooth;
+.detail-card {
+    transition: 0.4s ease;
+    text-align: left;
 }
 
-h1, h2, .logo { font-family: 'Bebas Neue', cursive; letter-spacing: 2px; }
+.detail-card:hover {
+    transform: translateY(-10px);
+    border: 1px solid var(--primary);
+}
 
-/* Navbar */
-.navbar {
+.detail-card .icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.detail-card h3 {
+    color: var(--deep);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+/* 语言点状进度条 */
+.lang-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.lang-item {
     display: flex;
     justify-content: space-between;
-    padding: 1rem 10%;
-    background: var(--deep-purple);
-    color: white;
-    position: sticky;
-    top: 0; z-index: 100;
+    align-items: center;
 }
 
-.nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-links a { color: white; text-decoration: none; font-weight: bold; }
-
-/* Header */
-.header {
-    background: var(--soft-purple);
-    padding: 80px 20px;
-    text-align: center;
-    border-bottom: 5px solid var(--primary-purple);
-}
-
-.profile-wrapper { position: relative; display: inline-block; }
-.profile-img {
-    width: 180px; height: 180px;
+.dot-bar { display: flex; gap: 8px; }
+.dot {
+    width: 15px; height: 15px;
     border-radius: 50%;
-    border: 6px solid white;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    background: #ddd;
+}
+.dot.active {
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--soft);
 }
 
-.upload-badge {
-    position: absolute; bottom: 10px; right: 10px;
-    background: var(--primary-purple);
-    border-radius: 50%; width: 40px; height: 40px;
-    display: flex; align-items: center; justify-content: center;
-    cursor: pointer; border: 2px solid white;
-}
-.upload-badge input { display: none; }
-
-h1 { font-size: 4rem; color: var(--deep-purple); margin-top: 15px; }
-
-/* Sections */
-.section { padding: 80px 10%; text-align: center; }
-.alt-bg { background: var(--light-gray); }
-.title { font-size: 3rem; color: var(--primary-purple); margin-bottom: 30px; }
-
-.content-card {
-    background: white; padding: 30px; border-radius: 20px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto;
-}
-
-.hobbies-grid {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;
-}
-
-.hobby-item {
-    background: var(--primary-purple); color: white;
-    padding: 20px; border-radius: 15px; font-weight: bold;
-}
-
-.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.card {
-    background: white; padding: 30px; border-radius: 20px;
-    border-left: 8px solid var(--soft-purple);
-}
-
-/* Upload & Game */
-.btn {
-    display: inline-block; background: var(--primary-purple);
-    color: white; padding: 12px 25px; border-radius: 25px;
-    cursor: pointer; margin-top: 10px; font-family: 'Bebas Neue';
-}
-
-#resourceUpload { display: none; }
-
-.game-box {
-    height: 300px; background: white; border: 3px dashed var(--soft-purple);
-    position: relative; border-radius: 20px; margin: 20px 0; overflow: hidden;
-}
-
-#game-target {
-    font-size: 2.5rem; position: absolute; cursor: pointer; user-select: none;
-}
-
-.score { font-size: 2rem; font-weight: bold; color: var(--primary-purple); }
-:root {
-    --primary: #9b59b6;
-    --soft: #e0bbe4;
-    --deep: #663399;
-    --bg: #f8f1fa;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-
-body {
-    font-family: 'Roboto', sans-serif;
-    background-color: var(--bg);
-    color: #444;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-}
-
-/* 小巧思：漂浮背景样式 */
-.floating-bg {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    pointer-events: none; z-index: -1;
-}
-
+/* 之前漂浮背景的小优化：让它带一点紫色光晕 */
 .floating-emoji {
-    position: absolute;
-    font-size: 2rem;
-    opacity: 0.2;
-    animation: float 10s linear infinite;
+    text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
 }
-
-@keyframes float {
-    0% { transform: translateY(110vh) rotate(0deg); }
-    100% { transform: translateY(-10vh) rotate(360deg); }
-}
-
-/* 导航与 Header */
-.navbar {
-    display: flex; justify-content: space-between; padding: 1rem 10%;
-    background: rgba(102, 51, 153, 0.8); backdrop-filter: blur(10px);
-    color: white; position: sticky; top: 0; z-index: 100;
-}
-
-.nav-links { display: flex; list-style: none; gap: 20px; }
-.nav-links a { color: white; text-decoration: none; font-weight: bold; }
-
-.header { padding: 100px 20px; text-align: center; background: var(--soft); }
-.profile-img { 
-    width: 180px; height: 180px; border-radius: 50%; 
-    border: 5px solid white; box-shadow: 0 10px 20px rgba(155, 89, 182, 0.3);
-}
-
-/* 小巧思：玻璃拟态卡片 */
-.glass-card {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 40px; border-radius: 30px;
-    max-width: 800px; margin: 0 auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-h1 { font-family: 'Bebas Neue'; font-size: 4.5rem; color: var(--deep); min-height: 5.5rem; }
-.title { font-family: 'Bebas Neue'; font-size: 3rem; color: var(--primary); margin-bottom: 20px; }
-
-/* 爱好网格 */
-.hobbies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; padding: 20px 10%; }
-.hobby-item {
-    background: white; padding: 20px; border-radius: 20px;
-    border-bottom: 5px solid var(--primary); transition: 0.3s;
-}
-.hobby-item:hover { transform: translateY(-10px); background: var(--primary); color: white; }
-
-/* 游戏 */
-.game-container {
-    height: 300px; background: white; border-radius: 30px;
-    position: relative; overflow: hidden; border: 3px solid var(--soft);
-}
-#game-target { position: absolute; font-size: 3rem; cursor: pointer; user-select: none; }
