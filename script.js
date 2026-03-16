@@ -1,16 +1,16 @@
 // --- 1. Typewriter Animation ---
-const msg = "Anyu Zhang: Peer Mediator Leader & Tech Enthusiast ✨";
-let idx = 0;
-function type() {
-    if (idx < msg.length) {
-        document.getElementById("typewriter").innerHTML += msg.charAt(idx);
-        idx++;
-        setTimeout(type, 100);
+const msg = "Anyu Zhang: Peer Mediator Leader & Social Science Fan ✨";
+let i = 0;
+function typeEffect() {
+    if (i < msg.length) {
+        document.getElementById("typewriter").innerHTML += msg.charAt(i);
+        i++;
+        setTimeout(typeEffect, 100);
     }
 }
 
-// --- 2. Floating Symbols ---
-function initFloaters() {
+// --- 2. Floating Background Elements ---
+function createFloatingIcons() {
     const icons = ['🏓', '📚', '🎵', '💜', '🧠', '🤝', '✨'];
     const bg = document.getElementById('floating-bg');
     setInterval(() => {
@@ -18,13 +18,13 @@ function initFloaters() {
         item.className = 'floating-emoji';
         item.innerText = icons[Math.floor(Math.random() * icons.length)];
         item.style.left = Math.random() * 100 + 'vw';
-        item.style.animationDuration = (Math.random() * 5 + 7) + 's';
+        item.style.animationDuration = (Math.random() * 5 + 6) + 's';
         bg.appendChild(item);
         setTimeout(() => item.remove(), 11000);
     }, 2500);
 }
 
-// --- 3. Profile Photo Preview ---
+// --- 3. Profile Image Live Update ---
 document.getElementById('photoUpload').addEventListener('change', function(e) {
     if(this.files[0]) {
         const reader = new FileReader();
@@ -33,35 +33,35 @@ document.getElementById('photoUpload').addEventListener('change', function(e) {
     }
 });
 
-// --- 4. Resource Upload Simulation ---
+// --- 4. File Upload Status Update ---
 document.getElementById('resInput').addEventListener('change', function() {
     if(this.files[0]) {
-        document.getElementById('resStatus').innerText = "Uploaded: " + this.files[0].name;
+        document.getElementById('resStatus').innerText = "File ready: " + this.files[0].name;
     }
 });
 
 // --- 5. Purple Heart Game ---
 let score = 0;
-const target = document.getElementById('game-target');
-const scoreDisplay = document.getElementById('score');
+const heart = document.getElementById('game-target');
+const scoreSpan = document.getElementById('score');
 
-target.addEventListener('mousedown', () => {
+heart.addEventListener('mousedown', () => {
     score++;
-    scoreDisplay.innerText = score;
-    moveTarget();
+    scoreSpan.innerText = score;
+    moveHeart();
 });
 
-function moveTarget() {
-    const container = document.querySelector('.game-container');
-    const x = Math.random() * (container.clientWidth - 70);
-    const y = Math.random() * (container.clientHeight - 70);
-    target.style.left = x + 'px';
-    target.style.top = y + 'px';
+function moveHeart() {
+    const box = document.querySelector('.game-container');
+    const maxX = box.clientWidth - 70;
+    const maxY = box.clientHeight - 70;
+    heart.style.left = Math.random() * maxX + 'px';
+    heart.style.top = Math.random() * maxY + 'px';
 }
 
-// Initialize Everything
+// Initialize on page load
 window.onload = () => {
-    type();
-    initFloaters();
-    moveTarget();
+    typeEffect();
+    createFloatingIcons();
+    moveHeart();
 };
