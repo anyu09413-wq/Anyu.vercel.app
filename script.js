@@ -47,3 +47,21 @@ function moveTarget() {
 
 // Start game position
 moveTarget();
+// 在 script.js 底部添加
+const text = "Welcome to Anyu's Creative Space! ✨";
+let index = 0;
+
+function typeWriter() {
+    if (index < text.length) {
+        document.querySelector('h1').innerHTML += text.charAt(index);
+        index++;
+        setTimeout(typeWriter, 100); // 调整速度
+    }
+}
+
+// 修改 index.html 里的 h1，先让它为空 <h1></h1>
+// 然后在 window.onload 里调用这个函数
+window.onload = () => {
+    document.querySelector('h1').innerHTML = ""; // 先清空
+    typeWriter();
+};
